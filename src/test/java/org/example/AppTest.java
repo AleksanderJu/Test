@@ -12,6 +12,7 @@ public class AppTest {
     //5* В pom файле добавьте maven-surefire-plugin и запустите все свои тесты командой mvn test
 
     @Test
+
     public void catTest() {
         Cat cat = new Cat();
         Assertions.assertEquals("Мяу-мяу", cat.sayMeow());
