@@ -1,6 +1,5 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
@@ -12,15 +11,30 @@ public class AppTest {
     //5* В pom файле добавьте maven-surefire-plugin и запустите все свои тесты командой mvn test
 
     @Test
+    //1. В main или в тесте выполните деление на ноль
+    //2. Обработайте исключение при делении на ноль
+    public void divisionByZero() {
+        try {
+            System.out.println("Делим число на ноль");
+            System.out.println(366/0);
+            System.out.println("!");
 
-    public void catTest() {
-        Cat cat = new Cat();
-        Assertions.assertEquals("Мяу-мяу", cat.sayMeow());
-    }
 
-    @Test
-    public void dogTest() {
-        Dog dog = new Dog();
-        Assertions.assertEquals("Гав-гав", dog.sayWoof());
-    }
+        } catch (ArithmeticException e) {
+
+            System.out.println("Программа перепрыгнула в блок catch!");
+            System.out.println("Ошибка! Нельзя делить на ноль!");
+        }
+
 }
+    //  public void catTest() {
+      //  Cat cat = new Cat();
+    //    Assertions.assertEquals("Мяу-мяу", cat.sayMeow());
+    }
+
+  //  @Test
+    //public void dogTest() {
+     //   Dog dog = new Dog();
+      //  Assertions.assertEquals("Гав-гав", dog.sayWoof());
+  //  }
+
