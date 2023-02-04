@@ -39,6 +39,7 @@ public class OrderStatusPage {
         Assertions.assertEquals("status-list__status status-list__status_active", attributeValue);
     }
 @Step("checkOrderDetails")
+
     //проверка значений деталей заказа
     public void checkOrderDetails(String name, String phone, String comment) {
         Assertions.assertEquals(name, nameTextField.getText());
