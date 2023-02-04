@@ -2,6 +2,7 @@ package ui.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +21,7 @@ public class OrderStatusPage {
 
     @FindBy(how = How.XPATH, using = "//h3[text() = 'Комментарий']/following-sibling::span")
     private SelenideElement commentTextField;
-
+@Step("checkOrderStatus")
     //проверка статуса заказа (по значениям css и attribute элемента)
     public void checkOrderStatus(String status) {
         String xpathLocator = "//span[text() = '%s']";
@@ -37,7 +38,7 @@ public class OrderStatusPage {
         Assertions.assertEquals("700", fontWeight);
         Assertions.assertEquals("status-list__status status-list__status_active", attributeValue);
     }
-
+@Step("checkOrderDetails")
     //проверка значений деталей заказа
     public void checkOrderDetails(String name, String phone, String comment) {
         Assertions.assertEquals(name, nameTextField.getText());

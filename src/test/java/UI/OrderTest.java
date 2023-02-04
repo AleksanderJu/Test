@@ -1,6 +1,7 @@
 package UI;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ui.pages.CreateOrderPage;
 import ui.pages.LoginPage;
@@ -21,6 +22,7 @@ public class OrderTest {
     }
 
     @Test
+    @Tag("e2e")
     public void createOrderTest() {
 
         LoginPage.inputLogin("user4");

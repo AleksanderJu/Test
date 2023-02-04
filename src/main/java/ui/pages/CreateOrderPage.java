@@ -3,6 +3,7 @@ package ui.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -34,7 +35,7 @@ public class CreateOrderPage {
     public static void checkPageTitle(String title) {
         titleText.shouldBe(Condition.visible).shouldHave(Condition.text(title));
     }
-
+@Step("Create Order")
     //Создание заказа
     public static void createOrder(String name, String phone, String comment) {
         nameInput.setValue(name);
@@ -42,14 +43,14 @@ public class CreateOrderPage {
         commentInput.setValue(comment);
         createOrderButton.click();
     }
-
+@Step("checkOrderCreatedText")
     //проверка текста сообщения об успешном создании заказа
     public static void checkOrderCreatedText(String textSuccess) {
         popUpTextField
                 .shouldBe(Condition.visible)
                 .shouldHave(Condition.text(textSuccess));
     }
-
+@Step("getOrderId")
     //получение id из статуса заказа
     public String getOrderId() {
         String orderId = $(".notification-popup__text", 1).getText().replaceAll("\\D+", "");

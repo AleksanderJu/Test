@@ -3,6 +3,7 @@ package ui.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -33,17 +34,17 @@ public class LoginPage {
     @FindBy(how = How.XPATH, using = "//span[@class='error-popup__title']")
     private SelenideElement errorPopUpTextField;
 
-
+@Step("Login")
     //заполнение поля логин значением
     public static void inputLogin(String username) {
         loginInput.setValue(username);
     }
-
+@Step("Password")
     //заполнение поля пароль значением
     public static void inputPassword(String password) {
         passwordInput.setValue(password);
     }
-
+@Step("SingIn")
     //нажатие на кнопку логин
     public static CreateOrderPage signIn() {
         signInButton.click();
